@@ -7,7 +7,19 @@ class Account extends Entity {
   /**
    * Получает информацию о счёте
    * */
-  static get(id = '', callback){
 
+  /**
+   * Получает информацию о счёте или доходе/расходе
+   * (в зависимости от того, что наследуется от Entity)
+   * */
+  static get(id = "", data, callback = (f) => f) {
+    let data1 = Object.assign({}, data);
+    return createRequest({
+      id: this.id,
+      method: "GET",
+      responseType: "json",
+      data: data1,
+      callback: callback,
+    });
   }
 }

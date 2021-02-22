@@ -60,7 +60,7 @@ class AsyncForm {
    * данные, полученные из метода getData()
    * */
   submit() {
-    // не понятно правильный ли аргумент
+    console.log(this.getData());
     this.onSubmit(this.getData());
   }
 }

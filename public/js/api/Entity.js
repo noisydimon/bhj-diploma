@@ -12,13 +12,11 @@ class Entity {
    * */
   static list(data, callback = (f) => f) {
     return createRequest({
-      url: this.url,
+      url: this.URL,
       method: "GET",
       responseType: "json",
       data: data,
-      callback: () => {
-        console.log(xhr.response);
-      },
+      callback,
     });
   }
 
@@ -29,29 +27,12 @@ class Entity {
    * */
   static create(data, callback = (f) => f) {
     let data1 = Object.assign({}, data);
-    data1._method = "PUT";
-    //console.log(data);
     return createRequest({
       url: this.url,
-      method: "POST",
+      method: "PUT",
       responseType: "json",
-      data: data1,
-      callback: callback,
-    });
-  }
-
-  /**
-   * Получает информацию о счёте или доходе/расходе
-   * (в зависимости от того, что наследуется от Entity)
-   * */
-  static get(id = "", data, callback = (f) => f) {
-    let data1 = Object.assign({}, data);
-    return createRequest({
-      id: this.id,
-      method: "GET",
-      responseType: "json",
-      data: data1,
-      callback: callback,
+      data1,
+      callback,
     });
   }
 
@@ -61,6 +42,12 @@ class Entity {
    * */
   static remove(id = "", data, callback = (f) => f) {
     let data1 = Object.assign({}, data);
-    (data1.id = ""), (data1._method = "DELETE");
+    createRequest({
+      url: this.URL,
+      method: "DELETE",
+      responseType: "json",
+      data1,
+      callback,
+    });
   }
 }

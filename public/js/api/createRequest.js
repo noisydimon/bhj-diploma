@@ -4,6 +4,7 @@
  * */
 const createRequest = (options = {}) => {
   //{method, url, data = {}, callback}
+  options.callback = function () {};
   const xhr = new XMLHttpRequest();
   xhr.responseType = "json";
   let url = options.url;
@@ -30,23 +31,23 @@ const createRequest = (options = {}) => {
     } catch (err) {
       options.callback(err);
     }
-
-    xhr.addEventListener("readystatechange", () => {
-      if (xhr.readyState == xhr.DONE && xhr.status == 200) {
-        options.callback(null, xhr.response);
-      } else {
-        options.callback(xhr.status, xhr.response); // xhr.status
-      }
-    });
-    /* xhr.onsuccess = () => {
-      options.callback(null, xhr.response);
-    };
-    xhr.onerror = () => {
-      options.callback(err, xhr.response);
-    };*/
-    //console.log(url);
-    //console.log(xhr.response);
-
-    return xhr;
   }
+  xhr.addEventListener("readystatechange", () => {
+    if (xhr.readyState == xhr.DONE && xhr.status == 200) {
+      options.callback(null, xhr.response);
+    } else {
+      options.callback(xhr.status, xhr.response); // xhr.status
+    }
+  });
+
+  return xhr;
 };
+
+createRequest({
+  url: "/user/login",
+  data: {
+    email: "ivan@biz.pro",
+    password: "odinodin",
+  },
+  method: "POST",
+});
