@@ -10,11 +10,12 @@ class UserWidget {
    * Если переданный элемент не существует,
    * необходимо выкинуть ошибку.
    * */
-  constructor(element){
-    if (!element){
-      throw new Error('Элемент не существует');
-    }
+  constructor(element) {
     this.element = element;
+    if (this.element === null) {
+      const emptyElement = new Error("Отсутствует элемент");
+      throw emptyElement;
+    }
   }
 
   /**
@@ -24,12 +25,12 @@ class UserWidget {
    * в элемент .user-name устанавливает имя
    * авторизованного пользователя
    * */
-  update(){
-    const user = User.current();
-    if (!user){
-      return;
+  update() {
+    User.current();
+    let userName = User.current("user").name;
+    if (localStorage.getItem("key") === userName) {
+      let nameField = document.getElementsByClassName("user-name")[0];
+      nameField.textContent = userName;
     }
-    const name = this.element.querySelector( '.user-name' );
-    name.textContent = user.name;
   }
 }
