@@ -15,9 +15,9 @@ class RegisterForm extends AsyncForm {
 
   onSubmit(options) {
     User.register(options, (err, response) => {
+      console.log(response);
       //if (xhr.readyState === xhr.DONE && xhr.status === 200) {
       if (response !== null) {
-        console.log(response);
         //сбросить форму при успешной регистрации
         App.setState("user-logged");
         App.getModal("register").close();

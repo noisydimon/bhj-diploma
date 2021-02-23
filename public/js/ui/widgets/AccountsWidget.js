@@ -30,14 +30,14 @@ class AccountsWidget {
    * вызывает AccountsWidget.onSelectAccount()
    * */
   registerEvents() {
-    // let createAccButton = document.querySelector(".create-account");
-    // createAccButton.addEventListener("click", () => {
-    //   App.getModal("createAccount");
-    // });
-    // let currentAcc = document.querySelectorAll(".account");
-    // currentAcc.addEventListener("click", () => {
-    //   AccountsWidget.onSelectAccount();
-    // });
+    let createAccButton = document.querySelector(".create-account");
+    createAccButton.addEventListener("click", () => {
+      App.getModal("createAccount");
+    });
+    let currentAcc = document.querySelectorAll(".account");
+    currentAcc.addEventListener("click", () => {
+      AccountsWidget.onSelectAccount();
+    });
   }
 
   /**

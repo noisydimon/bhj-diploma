@@ -8,16 +8,14 @@ class CreateTransactionForm extends AsyncForm {
    * метод renderAccountsList
    * */
   constructor(element) {
-
+    super(element);
   }
 
   /**
    * Получает список счетов с помощью Account.list
    * Обновляет в форме всплывающего окна выпадающий список
    * */
-  renderAccountsList() {
-
-  }
+  renderAccountsList() {}
 
   /**
    * Создаёт новую транзакцию (доход или расход)
@@ -25,7 +23,5 @@ class CreateTransactionForm extends AsyncForm {
    * вызывает App.update(), сбрасывает форму и закрывает окно,
    * в котором находится форма
    * */
-  onSubmit(data) {
-
-  }
+  onSubmit(data) {}
 }
