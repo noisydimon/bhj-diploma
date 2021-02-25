@@ -92,8 +92,8 @@ class User {
       callback: (err, response) => {
         if (err === null && response.success) {
           this.setCurrent(response.user);
+          callback(response); //callback из RegisterForm.onSubmit
         }
-        callback(response);
       },
     });
   }

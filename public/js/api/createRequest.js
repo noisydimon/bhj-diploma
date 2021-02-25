@@ -21,6 +21,11 @@ const createRequest = (options = {}) => {
       options.callback(e);
     }
   } else {
+    xhr.addEventListener("load", () => {
+      if (xhr.readyState == xhr.DONE && xhr.status == 200) {
+        options.callback(null, xhr.response);
+      }
+    });
     let formdata = new FormData();
     for (let key in options.data) {
       formdata.append(key, options.data[key]);
@@ -32,13 +37,12 @@ const createRequest = (options = {}) => {
       options.callback(err);
     }
   }
-  xhr.addEventListener("readystatechange", () => {
-    if (xhr.readyState == xhr.DONE && xhr.status == 200) {
-      options.callback(null, xhr.response);
-    } else {
-      options.callback(xhr.status, xhr.response); // xhr.status
-    }
-  });
+
+  // xhr.addEventListener("readystatechange", () => {
+  //   if (xhr.readyState == xhr.DONE && xhr.status == 200) {
+  //     options.callback(null, xhr.response);
+  //   }
+  // });
 
   return xhr;
 };
