@@ -4,7 +4,7 @@
  * */
 const createRequest = (options = {}) => {
   //{method, url, data = {}, callback}
-  options.callback = function () {};
+  //options.callback = function () {};
   const xhr = new XMLHttpRequest();
   xhr.responseType = "json";
   let url = options.url;
@@ -21,7 +21,7 @@ const createRequest = (options = {}) => {
       options.callback(e);
     }
   } else {
-    xhr.addEventListener("load", () => {
+    xhr.addEventListener("readystatechange", () => {
       if (xhr.readyState == xhr.DONE && xhr.status == 200) {
         options.callback(null, xhr.response);
       }
@@ -37,13 +37,7 @@ const createRequest = (options = {}) => {
       options.callback(err);
     }
   }
-
-  // xhr.addEventListener("readystatechange", () => {
-  //   if (xhr.readyState == xhr.DONE && xhr.status == 200) {
-  //     options.callback(null, xhr.response);
-  //   }
-  // });
-
+  //console.log(xhr.response);
   return xhr;
 };
 
