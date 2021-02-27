@@ -27,10 +27,9 @@ class UserWidget {
    * */
   update() {
     User.current();
-    let userName = User.current("user").name;
-    if (localStorage.getItem("key") === userName) {
-      let nameField = document.getElementsByClassName("user-name")[0];
-      nameField.textContent = userName;
-    }
+    let userName = User.current().name;
+    let nameField = document.getElementsByClassName("user-name")[0];
+    nameField.textContent = userName;
+    //}
   }
 }
