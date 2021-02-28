@@ -28,7 +28,7 @@ class Entity {
   static create(data, callback = (f) => f) {
     let data1 = Object.assign({}, data);
     return createRequest({
-      url: this.url,
+      url: this.URL,
       method: "PUT",
       responseType: "json",
       data1,

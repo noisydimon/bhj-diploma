@@ -37,8 +37,8 @@ class AccountsWidget {
     });
     let existingAcc = document.querySelectorAll(".account");
     for (let i = 0; i < existingAcc.length; i++) {
-      currentAcc[i].addEventListener("click", () => {
-        AccountsWidget.onSelectAccount();
+      existingAcc[i].addEventListener("click", () => {
+        this.onSelectAccount();
       });
     }
   }
@@ -58,7 +58,7 @@ class AccountsWidget {
       Account.list(User.current(), (err, response) => {
         if (response.success) {
           this.clear();
-          this.renderItem(item);
+          this.renderItem();
         }
       });
     }
@@ -115,7 +115,10 @@ class AccountsWidget {
    * AccountsWidget.getAccountHTML HTML-код элемента
    * и добавляет его внутрь элемента виджета
    * */
-  renderItem(item) {}
+  renderItem(item) {
+    //item разобраться откуда принимается и может удалить его отсюда
+    this.element.innerHTML += this.getAccountHTML(item); // разобраться куда вставлять код
+  }
 }
 
 //document.getElementById("items").innerHTML +=`

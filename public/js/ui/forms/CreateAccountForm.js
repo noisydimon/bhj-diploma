@@ -13,7 +13,7 @@ class CreateAccountForm extends AsyncForm {
   onSubmit(options) {
     Account.create(options);
     if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-      App.getModal("register").close();
+      App.getModal("createAccount").close();
       //сбросить форму?????
       App.update();
     }
