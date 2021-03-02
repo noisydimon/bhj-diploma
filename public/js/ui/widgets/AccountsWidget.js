@@ -57,6 +57,7 @@ class AccountsWidget {
     if (User.current()) {
       Account.list(User.current(), (err, response) => {
         if (response.success) {
+          //цикл для response.data
           this.clear();
           this.renderItem();
         }
@@ -117,20 +118,11 @@ class AccountsWidget {
    * */
   renderItem(item) {
     //item разобраться откуда принимается и может удалить его отсюда
-    this.element.innerHTML += this.getAccountHTML(item); // разобраться куда вставлять код
+
+    const sidebarMenu = document.querySelector(".sidebar-menu.accounts-panel");
+    sidebarMenu.firstElementChild.insertAdjacentHTML(
+      "afterend",
+      this.getAccountHTML(item)
+    );
   }
 }
-
-//document.getElementById("items").innerHTML +=`
-//     <div class="item">
-//     <div class="item__code">
-//     ${valuteNames[i]}
-//     </div>
-//     <div class="item__value">
-//     ${valuteVolue[i]}
-//     </div>
-//     <div class="item__currency">
-//         руб.
-//     </div>
-// </div>
-// `;
