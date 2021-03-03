@@ -33,7 +33,7 @@ class AccountsWidget {
   registerEvents() {
     let createAccButton = document.querySelector(".create-account");
     createAccButton.addEventListener("click", () => {
-      App.getModal("createAccount");
+      App.getModal("createAccount").open();
     });
     let existingAcc = document.querySelectorAll(".account");
     for (let i = 0; i < existingAcc.length; i++) {
