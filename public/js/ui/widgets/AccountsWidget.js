@@ -119,7 +119,6 @@ class AccountsWidget {
    * */
   renderItem() {
     //item разобраться откуда принимается и может удалить его отсюда
-
     const sidebarMenu = document.querySelector(".sidebar-menu.accounts-panel");
     sidebarMenu.firstElementChild.insertAdjacentHTML(
       "afterend",
