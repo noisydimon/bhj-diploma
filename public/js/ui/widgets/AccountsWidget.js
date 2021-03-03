@@ -57,9 +57,10 @@ class AccountsWidget {
     if (User.current()) {
       Account.list(User.current(), (err, response) => {
         if (response.success) {
-          //цикл для response.data
           this.clear();
-          this.renderItem();
+          for (key in response.data) {
+            this.renderItem();
+          }
         }
       });
     }
@@ -116,13 +117,13 @@ class AccountsWidget {
    * AccountsWidget.getAccountHTML HTML-код элемента
    * и добавляет его внутрь элемента виджета
    * */
-  renderItem(item) {
+  renderItem() {
     //item разобраться откуда принимается и может удалить его отсюда
 
     const sidebarMenu = document.querySelector(".sidebar-menu.accounts-panel");
     sidebarMenu.firstElementChild.insertAdjacentHTML(
       "afterend",
-      this.getAccountHTML(item)
+      this.getAccountHTML()
     );
   }
 }
