@@ -42,7 +42,7 @@ const createRequest = (options = {}) => {
   //console.log(xhr.response);
   return xhr;
 };
-
+/*
 createRequest({
   url: "/user/login",
   data: {
@@ -50,4 +50,4 @@ createRequest({
     password: "odinodin",
   },
   method: "POST",
-});
+});*/
