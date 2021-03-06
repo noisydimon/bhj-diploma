@@ -58,8 +58,8 @@ class AccountsWidget {
       Account.list(User.current(), (err, response) => {
         if (response.success) {
           this.clear();
-          for (key in response.data) {
-            this.renderItem();
+          for (let item in response.data) {
+            this.renderItem(item);
           }
         }
       });
@@ -101,7 +101,7 @@ class AccountsWidget {
    * отображения в боковой колонке.
    * item - объект с данными о счёте
    * */
-  static getAccountHTML(item) {
+  getAccountHTML(item) {
     let accountHTML = `<li class="active account" data-id=${item.id}>
       <a href="#">
         <span>${item.name}</span> /
@@ -117,12 +117,12 @@ class AccountsWidget {
    * AccountsWidget.getAccountHTML HTML-код элемента
    * и добавляет его внутрь элемента виджета
    * */
-  renderItem() {
+  renderItem(item) {
     //item разобраться откуда принимается и может удалить его отсюда
-    const sidebarMenu = document.querySelector(".sidebar-menu.accounts-panel");
-    sidebarMenu.firstElementChild.insertAdjacentHTML(
-      "afterend",
-      this.getAccountHTML()
-    );
+    //const sidebarMenu = document.querySelector(".sidebar-menu.accounts-panel");
+    // sidebarMenu.firstElementChild.insertAdjacentHTML(
+    this.element.insertAdjacentHTML("beforeEnd", this.getAccountHTML(item));
   }
 }
+
+//console.log(AccountsWidget.getAccountHTML({ id: 35, name: "Сбербанк", sum: 2396.3 }));
