@@ -35,18 +35,24 @@ class User {
    * авторизованном пользователе.
    * */
   static fetch(callback = (f) => f) {
-    createRequest((err, response) => {
-      if (response.success) {
-        let user = {
-          id: response.user.id,
-          name: response.user.name,
-        };
-        User.setCurrent(user);
-      } else if (!response.success) {
-        User.unsetCurrent();
+    createRequest(
+      {
+        method: "GET",
+        url: User.URL + "/current",
+      },
+      (err, response) => {
+        if (response.success) {
+          let user = {
+            id: response.user.id,
+            name: response.user.name,
+          };
+          User.setCurrent(user);
+        } else if (!response.success) {
+          User.unsetCurrent();
+        }
+        callback(err, response);
       }
-      callback(err, response);
-    });
+    );
   }
   /*static fetch(data, callback = (f) => f) {
     createRequest(

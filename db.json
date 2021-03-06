@@ -5,8 +5,19 @@
       "email": "demo@demo",
       "password": "demo",
       "id": "1"
+    },
+    {
+      "name": "Дмитрий",
+      "email": "noisydimon@yandex.ru",
+      "password": "111111",
+      "id": "800a3r1z9rklx4s5iv"
     }
-   ],
-   "accounts": [],
-   "transactions":[]
-  }
+  ],
+  "accounts": [
+    {
+      "user_id": "800a3r1z9rklx4s5iv",
+      "id": "800a3r2007klx8gvat"
+    }
+  ],
+  "transactions": []
+}
