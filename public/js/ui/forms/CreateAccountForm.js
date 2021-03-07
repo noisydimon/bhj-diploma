@@ -29,4 +29,5 @@ onSubmit(options) {
       App.getModal("login").close();
     }
   });
+}
 }*/
