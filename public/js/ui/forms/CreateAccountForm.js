@@ -15,7 +15,7 @@ class CreateAccountForm extends AsyncForm {
       if (response !== null) {
         App.getModal("createAccount").close();
         App.update();
-        App.getForm("createAccount").reset();
+        App.getForm("createAccount").element.reset();
       }
     });
   }

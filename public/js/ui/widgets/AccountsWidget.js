@@ -118,7 +118,6 @@ class AccountsWidget {
    * и добавляет его внутрь элемента виджета
    * */
   renderItem(item) {
-    //item разобраться откуда принимается и может удалить его отсюда
     //const sidebarMenu = document.querySelector(".sidebar-menu.accounts-panel");
     // sidebarMenu.firstElementChild.insertAdjacentHTML(
     this.element.insertAdjacentHTML("beforeEnd", this.getAccountHTML(item));
