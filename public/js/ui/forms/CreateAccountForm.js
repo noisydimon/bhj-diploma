@@ -14,20 +14,10 @@ class CreateAccountForm extends AsyncForm {
     Account.create(options, (err, response) => {
       if (response !== null) {
         App.getModal("createAccount").close();
-        App.initForms("createAccount").reset(); //сбросить форму?????
+
         App.update();
+        App.initForms("createAccount").reset(); //сбросить форму?????
       }
     });
   }
 }
-
-/*
-onSubmit(options) {
-  User.login(options, (err, response) => {
-    if (response !== null) {
-      App.setState("user-logged");
-      App.getModal("login").close();
-    }
-  });
-}
-}*/
