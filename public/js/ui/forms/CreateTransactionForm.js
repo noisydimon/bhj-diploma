@@ -16,11 +16,14 @@ class CreateTransactionForm extends AsyncForm {
   //    * Обновляет в форме всплывающего окна выпадающий список
   //    * */
   renderAccountsList() {
-    Account.list(data, (response) => {
+    Account.list(User.current(), (response) => {
       ///???? data это что
-      if (response.success) {
-        //let accountsListElement = `<option value="${response.data.id}">${response.data.name}</option>` // сделать элементы? потом добавить их к тем элементам что ниже в 49 и 50 строчке ниже
+      if (response !== null) {
         for (let key in response.data) {
+          this.element.insertAdjacentHTML(
+            "beforeEnd",
+            `<option value="${response.data[key].id}">${response.data[key].name}</option>`
+          );
         }
       }
     });
