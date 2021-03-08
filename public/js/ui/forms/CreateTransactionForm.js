@@ -16,7 +16,14 @@ class CreateTransactionForm extends AsyncForm {
   //    * Обновляет в форме всплывающего окна выпадающий список
   //    * */
   renderAccountsList() {
-    //     // Account.list(data, (callback = (f) => f));
+    Account.list(data, (response) => {
+      ///???? data это что
+      if (response.success) {
+        //let accountsListElement = `<option value="${response.data.id}">${response.data.name}</option>` // сделать элементы? потом добавить их к тем элементам что ниже в 49 и 50 строчке ниже
+        for (let key in response.data) {
+        }
+      }
+    });
   }
   //   /**
   //    * Создаёт новую транзакцию (доход или расход)
@@ -24,15 +31,21 @@ class CreateTransactionForm extends AsyncForm {
   //    * вызывает App.update(), сбрасывает форму и закрывает окно,
   //    * в котором находится форма
   //    * */
-  onSubmit(data) {
-    Transaction.create(data, () => {
-      if (response !== null) {
-        App.getModal("newIncome").close();
-        App.getModal("newExpense").close();
-        App.initForms("newIncome").reset();
-        App.initForms("newExpense").reset(); //сбросить форму?????
+  onSubmit(options) {
+    Transaction.create(options, (response) => {
+      if (response.success) {
+        this.element.reset();
+        if (this.element === document.querySelector("#new-income-form")) {
+          App.getModal("newIncome").close();
+        } else {
+          App.getModal("newExpense").close();
+        }
         App.update();
       }
     });
   }
 }
+
+//<select name="account_id" id="income-accounts-list" class="form-control accounts-select" required=""></select>
+//<select name="account_id" id="expense-accounts-list" class="form-control accounts-select" required=""></select>
+//<option value="${id}">${name}</option>
