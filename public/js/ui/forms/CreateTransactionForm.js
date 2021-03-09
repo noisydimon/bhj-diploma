@@ -17,12 +17,11 @@ class CreateTransactionForm extends AsyncForm {
   //    * */
   renderAccountsList() {
     Account.list(User.current(), (response) => {
-      ///???? data это что
       if (response !== null) {
         for (let key in response.data) {
           this.element.insertAdjacentHTML(
             "beforeEnd",
-            `<option value="${response.data[key].id}">${response.data[key].name}</option>`
+            `<option value="${response.key.id}">${response.key.name}</option>`
           );
         }
       }

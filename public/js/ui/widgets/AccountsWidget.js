@@ -58,8 +58,8 @@ class AccountsWidget {
       Account.list(User.current(), (err, response) => {
         if (response.success) {
           this.clear();
-          for (let key in response.data) {
-            this.renderItem(response.data[key]);
+          for (let key of response.data) {
+            this.renderItem(key);
           }
         }
       });

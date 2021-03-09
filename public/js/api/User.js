@@ -90,7 +90,11 @@ class User {
       //responseType: "json",
       callback: (err, response) => {
         if (err === null && response.success) {
-          this.setCurrent(response.user);
+          let user = {
+            id: response.user.id,
+            name: response.user.name,
+          };
+          User.setCurrent(user);
         }
         callback(err, response);
       },
