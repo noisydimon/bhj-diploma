@@ -15,12 +15,14 @@
   ],
   "accounts": [
     {
+      "name": "JOLJ",
       "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3r6l9km2al2j8"
+      "id": "800a3r8aekm3lyww8"
     },
     {
+      "name": "Сбербанк",
       "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3r6q5km2anfkc"
+      "id": "800a3r8bekm3lzkmx"
     }
   ],
   "transactions": []

@@ -14,12 +14,12 @@ class Account extends Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static get(id = "", data, callback = (f) => f) {
-    let data1 = Object.assign({}, data);
+    //let data1 = Object.assign({}, data);
     return createRequest({
       id: this.id,
       method: "GET",
       responseType: "json",
-      data: data1,
+      data: data,
       callback: callback,
     });
   }
