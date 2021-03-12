@@ -31,16 +31,16 @@ class AccountsWidget {
    * */
 
   registerEvents() {
-    let createAccButton = document.querySelector(".create-account");
-    createAccButton.addEventListener("click", () => {
-      App.getModal("createAccount").open();
+    let createAccButton = this.element.querySelector(".create-account");
+    let bindOnSelectAccount = this.onSelectAccount.bind(this);
+
+    this.element.addEventListener("click", (event) => {
+      if (event.target === createAccButton) {
+        App.getModal("createAccount").open();
+      } else {
+        bindOnSelectAccount(event.target);
+      }
     });
-    let existingAcc = document.querySelectorAll(".account");
-    for (let i = 0; i < existingAcc.length; i++) {
-      existingAcc[i].addEventListener("click", () => {
-        this.onSelectAccount();
-      });
-    }
   }
 
   /**
@@ -86,14 +86,16 @@ class AccountsWidget {
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
   onSelectAccount(element) {
-    let existingAcc = document.querySelectorAll(".account");
-    let target = element.target;
-    existingAcc.addEventListener("click", (element) => {
-      for (let i = 0; i < existingAcc.length; i++) {
-        existingAcc[i].classList.remove(".active");
-      }
-      target.classList.add(".active");
-    });
+    let targetElement = this.element.querySelector("active");
+    let closestElement = element.closest(".account");
+    if (targetElement) {
+      targetElement.classList.remove("active");
+      closestElement.classlist.add("active");
+    } else {
+      closestElement.classList.add("active");
+    }
+
+    App.showPage("transactions", closestElement.getAttribute("data-id"));
   }
 
   /**
