@@ -21,7 +21,7 @@ class CreateTransactionForm extends AsyncForm {
         for (let key in response.data) {
           this.element.insertAdjacentHTML(
             "beforeEnd",
-            `<option value="${response.key.id}">${response.key.name}</option>`
+            `<option value="${response[key].id}">${response[key].name}</option>`
           );
         }
       }

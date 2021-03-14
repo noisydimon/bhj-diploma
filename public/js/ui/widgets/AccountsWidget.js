@@ -58,9 +58,9 @@ class AccountsWidget {
       Account.list(User.current(), (err, response) => {
         if (response.success) {
           this.clear();
-          for (let key of response.data) {
-            this.renderItem(key);
-          }
+        }
+        for (let key of response.data) {
+          this.renderItem(key);
         }
       });
     }
@@ -86,16 +86,20 @@ class AccountsWidget {
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
   onSelectAccount(element) {
-    let targetElement = this.element.querySelector("active");
-    let closestElement = element.closest(".account");
-    if (targetElement) {
-      targetElement.classList.remove("active");
-      closestElement.classlist.add("active");
+    // let activeElement = this.element.querySelector(".active");
+    //let closestElement = element.closest(".account");
+
+    if (this.element.querySelector(".active")) {
+      this.element.querySelector(".active").classList.remove("active");
+      element.closest(".account").classList.add("active");
     } else {
-      closestElement.classList.add("active");
+      element.closest(".account").classList.add("active");
     }
 
-    App.showPage("transactions", closestElement.getAttribute("data-id"));
+    App.showPage(
+      "transactions",
+      element.closest(".account").getAttribute("data-id")
+    );
   }
 
   /**
@@ -104,7 +108,7 @@ class AccountsWidget {
    * item - объект с данными о счёте
    * */
   getAccountHTML(item) {
-    let accountHTML = `<li class="active account" data-id=${item.id}>
+    let accountHTML = `<li class="account" data-id=${item.id}>
       <a href="#">
         <span>${item.name}</span> /
         <span>${item.sum} ₽</span>

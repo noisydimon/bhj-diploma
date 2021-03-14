@@ -4,7 +4,6 @@
  * */
 const createRequest = (options = {}) => {
   //{method, url, data = {}, callback}
-  //options.callback = function () {};
   const xhr = new XMLHttpRequest();
   xhr.responseType = "json";
   let url = options.url;
