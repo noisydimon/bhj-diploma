@@ -31,7 +31,7 @@ class Entity {
       url: this.URL,
       method: "PUT",
       responseType: "json",
-      data,
+      data: data,
       callback,
     });
   }

@@ -9,50 +9,25 @@
     {
       "name": "Дмитрий",
       "email": "noisydimon@yandex.ru",
-      "password": "111111",
+      "password": "11",
       "id": "800a3r1z9rklx4s5iv"
     }
   ],
   "accounts": [
     {
-      "name": "JOLJ",
-      "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3r8aekm3lyww8"
-    },
-    {
       "name": "Сбербанк",
       "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3r8bekm3lzkmx"
+      "id": "800a3rfqgkmca0jct"
     },
     {
-      "name": "Данил",
+      "name": "Chase",
       "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3r8pjkm3nctsp"
+      "id": "800a3rg60kmcb83ip"
     },
     {
-      "name": "Дмитрий",
+      "name": "Bank of America",
       "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3r9e2km570kox"
-    },
-    {
-      "name": "13311",
-      "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3ra66km6c6a72"
-    },
-    {
-      "name": "11",
-      "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3ran7km73ycxk"
-    },
-    {
-      "name": "Данил11",
-      "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3rb1wkm742hfe"
-    },
-    {
-      "name": "Данил123",
-      "user_id": "800a3r1z9rklx4s5iv",
-      "id": "800a3rbp7km75ccjz"
+      "id": "800a3rgbikmcbtwqf"
     }
   ],
   "transactions": []
