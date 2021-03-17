@@ -56,27 +56,6 @@ class User {
       }
     );
   }
-  /*static fetch(data, callback = (f) => f) {
-    createRequest(
-      {
-        data: data,
-        method: "GET",
-        url: User.URL + "/current",
-      },
-      (err, response) => {
-        if (response.success) {
-          let user = {
-            id: response.user.id,
-            name: response.user.name,
-          };
-          User.setCurrent(user);
-        } else if (!response.success) {
-          User.unsetCurrent();
-        }
-        callback(err, response);
-      }
-    );
-  }*/
 
   /**
    * Производит попытку авторизации.
@@ -134,8 +113,8 @@ class User {
       method: "POST",
       url: this.URL + "/logout",
       callback: (err, response) => {
-        if (xhr.response.success) {
-          User.unsetCurrent();
+        if (response.success) {
+          this.unsetCurrent();
         }
         callback(err, response);
       },

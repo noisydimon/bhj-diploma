@@ -31,11 +31,6 @@ class CreateTransactionForm extends AsyncForm {
     });
   }
 
-  //<select name="account_id" id="income-accounts-list" class="form-control accounts-select" required=""></select>
-  //<select name="account_id" id="expense-accounts-list" class="form-control accounts-select" required=""></select>
-  //{"success":true,"data":[{"name":"Сбербанк","user_id":"800a3r1z9rklx4s5iv","id":"800a3rfqgkmca0jct","sum":0},
-  //{"name":"Chase","user_id":"800a3r1z9rklx4s5iv","id":"800a3rg60kmcb83ip","sum":0},{"name":"Bank of America","user_id":"800a3r1z9rklx4s5iv","id":"800a3rgbikmcbtwqf","sum":0}]}
-
   //   /**
   //    * Создаёт новую транзакцию (доход или расход)
   //    * с помощью Transaction.create. По успешному результату
